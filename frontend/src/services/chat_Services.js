@@ -2,7 +2,7 @@ import { io } from "socket.io-client";
 import { useUserStor } from "../../store/useUserStore";
 
 let socket = null;
-const token =  localStorage.getItem("auth_token");
+const token =  localStorage.getItem("token");
 
 export const initiateSocket = () => {
   if (socket) return socket;
