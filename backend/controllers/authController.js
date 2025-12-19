@@ -46,7 +46,7 @@ const sendOtp = async (req, res) => {
 };
 //verify otp
 const verifyOtp = async (req, res) => {
-  console.log;
+
   const { phoneNumber, phoneSuffix, email, otp } = req.body;
   try {
     let user;
@@ -95,6 +95,7 @@ const verifyOtp = async (req, res) => {
 
 const updateProfile = async (req, res) => {
   const { username, about, agreed } = req.body;
+  console.log(req.user)
   const userId = req.user.userId;
   try {
     const user = await User.findById(userId);
