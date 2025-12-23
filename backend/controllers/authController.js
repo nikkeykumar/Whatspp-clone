@@ -46,7 +46,6 @@ const sendOtp = async (req, res) => {
 };
 //verify otp
 const verifyOtp = async (req, res) => {
-
   const { phoneNumber, phoneSuffix, email, otp } = req.body;
   try {
     let user;

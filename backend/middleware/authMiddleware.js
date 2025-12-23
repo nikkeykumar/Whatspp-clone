@@ -4,7 +4,7 @@ import response from "../utils/responseHandler.js";
 const authMiddleware = (req, res, next) => {
   const authHeader = req.headers[`authorization`];
   if (!authHeader || !authHeader.startsWith("Bearer ")) {
-    return response(res, 401, "authorization Token messing ");
+    return response(res, 401, "Authorization token missing");
   }
   const token = authHeader.split(" ")[1];
   try {

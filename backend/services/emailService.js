@@ -9,13 +9,14 @@ const transporter = nodemailer.createTransport({
     pass: process.env.EMAIL_PASS,
   },
 });
-transporter.verify((error, success) => {
-  if (error) {
-    console.error("Gmail service connection failed");
-  } else {
-    console.log("Gmail configured properly and ready to send email");
-  }
-});
+console.log(process.env.EMAIL_USER, process.env.EMAIL_PASS),
+  transporter.verify((error, success) => {
+    if (error) {
+      console.error("Gmail service connection failed");
+    } else {
+      console.log("Gmail configured properly and ready to send email");
+    }
+  });
 
 const sendEmail = async (email, otp) => {
   const html = `
