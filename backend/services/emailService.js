@@ -4,21 +4,23 @@ dotenv.config();
 
 const transporter = nodemailer.createTransport({
   host: "smtp.gmail.com",
-  port: 465,
-  secure: true,
+  port: 587,
+  secure: false,
   auth: {
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASS,
   },
+  tls: {
+    rejectUnauthorized: false,
+  },
 });
-
-  transporter.verify((error, success) => {
-    if (error) {
-      console.error("Gmail service connection failed");
-    } else {
-      console.log("Gmail configured properly and ready to send email");
-    }
-  });
+transporter.verify((error, success) => {
+  if (error) {
+    console.error("Gmail service connection failed");
+  } else {
+    console.log("Gmail configured properly and ready to send email");
+  }
+});
 
 const sendEmail = async (email, otp) => {
   const html = `
